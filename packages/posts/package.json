@@ -4,8 +4,7 @@
   "main": "src/main.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --watch src --exec ts-node src/main.ts",
-    "start": "nodemon"
+    "dev": "nodemon"
   },
   "dependencies": {
     "express": "^4.18.2"

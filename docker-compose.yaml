@@ -9,4 +9,4 @@ services:
       - .:/app
     ports:
       - "3000:3000"
-    command: pnpm --filter posts start
+    command: pnpm --filter posts dev
