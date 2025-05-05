@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  post:
+    build:
+      context: .
+      dockerfile: packages/posts/Dockerfile
+    container_name: post-service
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    command: pnpm --filter posts start
