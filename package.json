@@ -17,5 +17,8 @@
   "devDependencies": {
     "pnpm": "^10.10.0",
     "tsconfig-paths": "^4.2.0"
+  },
+  "dependencies": {
+    "glob": "^11.0.2"
   }
 }

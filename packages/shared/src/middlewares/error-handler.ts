@@ -1,20 +1,21 @@
-import { Request, Response, NextFunction } from 'express';
-import { CustomError } from '../errors/custom-error';
-import { logger } from '../logger/logger';
+import { Request, Response, NextFunction } from "express";
+import { logger } from "../logger"; // Adjust path to your logger
 
-export const errorHandler = (
+export function globalErrorHandler(
   err: Error,
   req: Request,
   res: Response,
   next: NextFunction
-) => {
-  logger.error(err);
-
-  if (err instanceof CustomError) {
-    return res.status(err.statusCode).send({ errors: err.serializeErrors() });
-  }
-
-  res.status(500).send({
-    errors: [{ message: 'Something went wrong' }],
+): void {
+  logger.error("Unhandled error", {
+    message: err.message,
+    stack: err.stack,
+    path: req.path,
+    method: req.method,
   });
-};
+
+  res.status(500).json({
+    message: "Internal Server Error",
+    error: process.env.NODE_ENV === "development" ? err.message : undefined,
+  });
+}

@@ -1,8 +1,9 @@
 {
-    "extends": "../../tsconfig.base.json",
-    "compilerOptions": {
-      "outDir": "dist",
-    },
-    "include": ["src", "../../packages/shared/src"]
-  }
-  
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  },
+  "include": ["src", "../../packages/shared/src"]
+}
